@@ -32,21 +32,24 @@ The following important libraries were used for this project:
 - sklearn.preprocessing.MinMaxScaler
 - sklearn.model_selection.train_test_split
 - sklearn.linear_model.LogisticRegression
+- chardet
+- sklearn.metrics.accuracy_score
+- sklearn.metrics.classification_report
 
 ## Data Exploration and Preprocessing
 
 1. The Movie_data, Ratings_data, and Users_data were loaded as DataFrames from separate CSV files.
 2. The missing values in each DataFrame were dropped using `dropna(inplace=True)`.
-3. The shape and descriptive statistics for each DataFrame were displayed using `df.shape` and `df.describe()`.
+3. The shape and descriptive statistics for each DataFrame were displayed using `data.shape`,`data.info` and `data.describe()`.
 4. The 'Gender' column in Users_data was encoded from categorical to numerical values using LabelEncoder.
-5. The DataFrames were concatenated horizontally using `pd.concat` to create a final dataset `df_data`.
-6. Unnecessary columns like 'Occupation', 'Zip-code', and 'Timestamp' were dropped from the final dataset to create `df2`.
-7. Any remaining missing values in the final dataset `df2` were dropped using `dropna()`.
+5. The DataFrames were concatenated horizontally using `pd.concat` and`pd.merge` to create a final dataset `data`.
+6. Unnecessary columns like 'Occupation', 'Zip-code', and 'Timestamp' were dropped from the final dataset to create `cleardata`.
+7. Any remaining missing values in the final dataset `cleardata` were dropped using `dropna()`.
 8. Data visualization was performed using count plots and histograms to gain insights into the distribution of ratings, genders, and age.
 
 ## Model Training
 
-1. The feature matrix `input` and target vector `target` were created using relevant columns from the final dataset `df_final`.
+1. The feature matrix `input` and target vector `target` were created using relevant columns from the final dataset `cleardata`.
 2. The data was split into training and testing sets using `train_test_split`.
 3. The input data was scaled using MinMaxScaler to normalize the values between 0 and 1.
 
@@ -54,3 +57,10 @@ The following important libraries were used for this project:
 
 1. A logistic regression model was initialized and trained on the training data using `LogisticRegression`.
 2. The model was used to predict movie ratings for the test set using `model.predict(X_test)`.
+
+##Model Evaluation
+
+In the provided code, {accuracy:.2f}, this is a formatted string in Python, often used to display numeric values with a specific number of decimal places. Let me break it down:
+`{}:` This is a placeholder for the value to be inserted into the string.
+`accuracy:` This is the variable or value that will replace the placeholder.
+`:.2f:` This is a formatting option specifying how to display the value. In this case, it means to display the value as a floating-point number with 2 decimal places.
