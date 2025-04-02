@@ -1,5 +1,3 @@
-# ZIC.labs-TASK2
-
 ## Movie Rating Prediction
 
 ## Author: CHANDRAHAS K
